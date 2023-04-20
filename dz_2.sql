@@ -9,7 +9,7 @@ use dz_2;
 drop table if exists sales;
 -- создание таблицы
 create table sales(
-	id serial primary key,
+    id serial primary key,
     order_data date not null,
     count_product int
 );
@@ -30,9 +30,9 @@ values
 больше 300 - Большой заказ
 */
 select
-	id as 'id заказа',
+    id as 'id заказа',
     case 
-		when count_product < 100 then 'Маленький заказ'
+	when count_product < 100 then 'Маленький заказ'
         when count_product between 100 and 300 then 'Средний заказ'
         when count_product > 300 then 'Большой заказ'
 	end as 'Тип заказа'
@@ -48,7 +48,7 @@ CANCELLED -«Order is cancelled»
 drop table if exists orders;
 -- создание таблицы
 create table orders(
-	id serial primary key,
+    id serial primary key,
     employee_id varchar(3) not null,
     amount decimal(5, 2),
     order_status varchar(9)
@@ -62,9 +62,9 @@ values
 ('e02', 22.18, 'OPEN'),
 ('e04', 9.50, 'CANCELLED');
 select
-	id as 'id заказа',
+    id as 'id заказа',
     case order_status
-		when 'OPEN' then 'Order is in open state'
+	when 'OPEN' then 'Order is in open state'
         when 'CLOSED' then 'Order is closed'
         when 'CANCELLED' then 'Order is cancelled'
 	end as 'full_order_status'
